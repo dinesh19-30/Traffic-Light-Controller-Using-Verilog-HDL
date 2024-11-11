@@ -1,12 +1,13 @@
 # Traffic-Light-Controller-Using-Verilog-HDL
-Aim
+## AIM :
 To design and simulate a traffic light controller using Verilog HDL, and verify its functionality through a testbench in the Vivado 2023.1 simulation environment. The objective is to control the traffic lights for a junction with a specific time-based sequence for Red, Yellow, and Green lights.
 
-Apparatus Required
+## APPARATUS REQUIRED :
 Vivado 2023.1 or equivalent Verilog simulation tool.
 Computer system with a suitable operating system.
 FPGA board (optional for hardware verification).
-Procedure
+
+## PROCEDURE :
 Launch Vivado 2023.1:
 
 Open Vivado and create a new project.
@@ -29,8 +30,8 @@ Save and Document Results:
 
 Capture screenshots of the waveform and save the simulation logs to include in your report.
 
-Verilog Code for Traffic Light Controller:
-
+### Verilog Code for Traffic Light Controller:
+~~~
 module Traffic_light_controller_TB;
 reg clk,rst;
 wire[2:0]light_M1;
@@ -50,13 +51,17 @@ begin
      rst=1;
      #1000000000;
      rst=0;
+     #(1000000000*200);
+     $finish;
+     end
+     endmodule
+~~~
 
-Output : ![traffic ](https://github.com/user-attachments/assets/718dcf66-4bff-4b02-aa28-f9bbdc51d15a)
+## Output : 
+![tl](https://github.com/user-attachments/assets/ae6b901c-6d4d-456a-a1ec-9ecc9a804447)
 
-
-
-Testbench for Traffic Light Controller:
-
+### Testbench for Traffic Light Controller:
+~~~
 module Traffic_light_controller_TB;
   reg clk, rst;
   wire [2:0] light_M1;  
@@ -89,12 +94,9 @@ module Traffic_light_controller_TB;
     $finish;            
   end
 endmodule
-
-
-Output : ![traffic tb](https://github.com/user-attachments/assets/75bad45a-159d-40fb-bfe5-21e7260c40eb)
-
-
-
-
-Conclusion
+~~~
+## Output : 
+![tl1](https://github.com/user-attachments/assets/a33ca09f-a55c-466b-8dee-b22eef476d64)
+ 
+## Conclusion:
 In this experiment, a traffic light controller was successfully designed and simulated using Verilog HDL. The design controlled the traffic lights to switch between Green, Yellow, and Red in a cyclic manner based on timing intervals. The testbench verified that the traffic lights followed the correct sequence and timing. The simulation results confirm the correct functionality of the traffic light controller, demonstrating the effectiveness of Verilog HDL in designing FSM-based controllers for real-world applications.
